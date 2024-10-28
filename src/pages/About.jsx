@@ -1,5 +1,26 @@
-import { FaAward, FaBullseye, FaUsers, FaLightbulb } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import {
+  FaAward,
+  FaBullseye,
+  FaUsers,
+  FaLightbulb,
+} from 'react-icons/fa'; // Icons
+import { Link } from 'react-router-dom'; // Router Link
+import { motion } from 'framer-motion'; // Animations
+
+// Animation Variants
+const cardVariants = (direction) => ({
+  hidden: {
+    opacity: 0,
+    x: direction === 'left' ? -100 : direction === 'right' ? 100 : 0,
+    y: direction === 'up' ? -100 : direction === 'down' ? 100 : 0,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: { duration: 0.8 },
+  },
+});
 
 function AboutPage() {
   return (
@@ -13,30 +34,54 @@ function AboutPage() {
         </p>
       </section>
 
-      {/* Features Section */}
+      {/* Features Section with Animated Cards */}
       <section className="container mx-auto py-16 px-6">
         <h2 className="text-3xl font-bold text-center mb-12">Our Features</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="text-center p-6 bg-white rounded-lg shadow-lg">
+          {/* Feature Cards with animations from different directions */}
+          <motion.div
+            className="text-center p-6 bg-white rounded-lg shadow-lg"
+            variants={cardVariants('left')}
+            initial="hidden"
+            animate="visible"
+          >
             <FaAward className="text-4xl text-indigo-600 mb-4 mx-auto" />
             <h3 className="text-xl font-semibold">Achieve Awards</h3>
             <p>Earn badges and certificates based on your performance.</p>
-          </div>
-          <div className="text-center p-6 bg-white rounded-lg shadow-lg">
+          </motion.div>
+
+          <motion.div
+            className="text-center p-6 bg-white rounded-lg shadow-lg"
+            variants={cardVariants('right')}
+            initial="hidden"
+            animate="visible"
+          >
             <FaBullseye className="text-4xl text-indigo-600 mb-4 mx-auto" />
             <h3 className="text-xl font-semibold">Track Progress</h3>
             <p>Monitor your scores over time to see your improvement.</p>
-          </div>
-          <div className="text-center p-6 bg-white rounded-lg shadow-lg">
+          </motion.div>
+
+          <motion.div
+            className="text-center p-6 bg-white rounded-lg shadow-lg"
+            variants={cardVariants('up')}
+            initial="hidden"
+            animate="visible"
+          >
             <FaUsers className="text-4xl text-indigo-600 mb-4 mx-auto" />
             <h3 className="text-xl font-semibold">Challenge Friends</h3>
             <p>Compete with friends and see who scores the highest.</p>
-          </div>
-          <div className="text-center p-6 bg-white rounded-lg shadow-lg">
+          </motion.div>
+
+          <motion.div
+            className="text-center p-6 bg-white rounded-lg shadow-lg"
+            variants={cardVariants('down')}
+            initial="hidden"
+            animate="visible"
+          >
             <FaLightbulb className="text-4xl text-indigo-600 mb-4 mx-auto" />
             <h3 className="text-xl font-semibold">Learn Smartly</h3>
             <p>Access a variety of quizzes to enhance your knowledge.</p>
-          </div>
+          </motion.div>
         </div>
       </section>
 

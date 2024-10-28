@@ -16,6 +16,7 @@ function Header() {
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo with Icon */}
           <div className="flex items-center space-x-2">
+            
             <FaQuestionCircle className="text-4xl" /> {/* Quiz logo */}
             <h1 className="text-3xl font-extrabold tracking-wide">Quizify</h1>
           </div>
@@ -32,6 +33,7 @@ function Header() {
             <Link to="/result" className="hover:text-indigo-200">Results</Link>
             <Link to="/about" className="hover:text-indigo-200">About Us</Link>
             <Link to="/contact" className="hover:text-indigo-200">Contact Us</Link>
+            <Link to="/dev" className="hover:text-indigo-200">About Dev</Link>
           </nav>
         </div>
       </header>
@@ -55,11 +57,12 @@ function Header() {
 
         {/* Side Nav Links */}
         <nav className="flex flex-col space-y-4 p-6">
-          <Link to="/" onClick={toggleNav} className="hover:text-indigo-300">Home</Link>
-          <Link to="/quiz" onClick={toggleNav} className="hover:text-indigo-300">Quiz</Link>
-          <Link to="/result" onClick={toggleNav} className="hover:text-indigo-300">Results</Link>
-          <Link to="/about" onClick={toggleNav} className="hover:text-indigo-300">About Us</Link>
-          <Link to="/contact" onClick={toggleNav} className="hover:text-indigo-300">Contact Us</Link>
+          <Link to="/"  className="hover:text-indigo-300">Home</Link>
+          <Link to="/quiz"  className="hover:text-indigo-300">Quiz</Link>
+          <Link to="/result"  className="hover:text-indigo-300">Results</Link>
+          <Link to="/about"  className="hover:text-indigo-300">About Us</Link>
+          <Link to="/contact"  className="hover:text-indigo-300">Contact Us</Link>
+           <Link to="/dev"     className="hover:text-indigo-200">About Dev</Link>
         </nav>
       </div>
     </>
